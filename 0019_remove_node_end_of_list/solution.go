@@ -13,8 +13,9 @@ type ListNode struct {
  * }
  */
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-	cur := head
-	end := head
+	dummy := ListNode{0, head}
+	cur := &dummy
+	end := &dummy
 
 	// create a n distance between cur and end
 	for i := 0; i < n; i++ {
@@ -32,5 +33,5 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 		cur.Next = cur.Next.Next
 	}
 
-	return head
+	return dummy.Next
 }
